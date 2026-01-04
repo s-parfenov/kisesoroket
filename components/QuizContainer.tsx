@@ -55,6 +55,16 @@ export default function QuizContainer() {
     }
   };
 
+  const handleRetakeQuiz = () => {
+    setQuizState({
+      currentQuestionIndex: 0,
+      answers: new Map(),
+      score: 0,
+      isComplete: false,
+    });
+    setShowFeedback(false);
+  };
+
 
   if (quizState.isComplete) {
     return (
@@ -67,12 +77,12 @@ export default function QuizContainer() {
             Your score: {quizState.score} / {totalQuestions}
           </p>
           <div className="space-y-4">
-            <Link
-              href="/quiz"
+            <button
+              onClick={handleRetakeQuiz}
               className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
             >
               Retake Quiz
-            </Link>
+            </button>
             <br />
             <Link
               href="/"
