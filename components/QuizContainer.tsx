@@ -1,12 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { questions, totalQuestions } from '@/data/questions';
-import { QuizState } from '@/types/quiz';
+import { photoQuestions, congratulationsQuestions } from '@/data/questions';
+import { QuizState, Question as QuestionType } from '@/types/quiz';
 import Question from './Question';
 import Link from 'next/link';
 
-export default function QuizContainer() {
+interface QuizContainerProps {
+  quizType: 'photos' | 'congratulations';
+}
+
+export default function QuizContainer({ quizType }: QuizContainerProps) {
   const [quizState, setQuizState] = useState<QuizState>({
     currentQuestionIndex: 0,
     answers: new Map(),
@@ -14,6 +18,29 @@ export default function QuizContainer() {
     isComplete: false,
   });
   const [showFeedback, setShowFeedback] = useState(false);
+
+  if (!quizType) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-8">
+        <div className="text-center">
+          <p className="text-xl text-gray-600 dark:text-gray-400">Invalid quiz type</p>
+        </div>
+      </div>
+    );
+  }
+
+  const questions: QuestionType[] = quizType === 'photos' ? photoQuestions : congratulationsQuestions;
+  const totalQuestions = questions.length;
+
+  if (totalQuestions === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-8">
+        <div className="text-center">
+          <p className="text-xl text-gray-600 dark:text-gray-400">No questions available</p>
+        </div>
+      </div>
+    );
+  }
 
   const currentQuestion = questions[quizState.currentQuestionIndex];
   const selectedAnswer = quizState.answers.get(quizState.currentQuestionIndex) ?? null;
@@ -79,14 +106,14 @@ export default function QuizContainer() {
           <div className="space-y-4">
             <button
               onClick={handleRetakeQuiz}
-              className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+              className="inline-block px-8 py-2.5 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
             >
               Retake Quiz
             </button>
             <br />
             <Link
               href="/"
-              className="inline-block px-8 py-4 bg-gray-600 text-white rounded-lg font-semibold text-lg hover:bg-gray-700 transition-colors"
+              className="inline-block px-8 py-2.5 bg-gray-600 text-white rounded-lg font-semibold text-lg hover:bg-gray-700 transition-colors"
             >
               Back to Home
             </Link>
@@ -130,7 +157,7 @@ export default function QuizContainer() {
           <div className="mt-8 flex justify-center">
             <button
               onClick={handleNext}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-lg"
+              className="px-8 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-lg"
             >
               {isLastQuestion ? 'Finish Quiz' : 'Next'}
             </button>

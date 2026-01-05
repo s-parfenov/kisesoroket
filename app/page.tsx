@@ -10,13 +10,23 @@ export default function Home() {
         <p className="text-center text-lg mb-8">
           A fun quiz to celebrate Kisa&apos;s 40th birthday!
         </p>
-        <div className="text-center">
-          <Link
-            href="/quiz"
-            className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
-          >
-            Start Quiz
-          </Link>
+        <div className="text-center space-y-4">
+          <div>
+            <Link
+              href="/congratulations"
+              className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+            >
+              Поздравления
+            </Link>
+          </div>
+          <div>
+            <Link
+              href="/photos"
+              className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+            >
+              Фотогалерея
+            </Link>
+          </div>
         </div>
       </div>
     </main>

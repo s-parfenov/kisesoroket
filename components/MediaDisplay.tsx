@@ -24,13 +24,15 @@ export default function MediaDisplay({ type, media }: MediaDisplayProps) {
     }
 
     return (
-      <div className="w-full max-w-2xl mx-auto mb-6">
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
+      <div className="w-full max-w-2xl mx-auto mb-6 flex justify-center">
+        <div className="relative rounded-lg overflow-hidden shadow-lg">
           <Image
             src={media}
             alt="Question image"
-            fill
-            className="object-cover"
+            width={800}
+            height={600}
+            className="max-w-full max-h-[500px] h-auto w-auto object-contain"
+            style={{ borderRadius: '0.5rem' }}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
             onError={() => setImageError(true)}
           />

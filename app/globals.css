@@ -16,7 +16,51 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #565670;
+  background-image: 
+    radial-gradient(circle, white 2px, transparent 2px),
+    radial-gradient(circle, white 2px, transparent 2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* Tie knot - trapezium with wider top */
+body::before {
+  content: '';
+  position: fixed;
+  top: 3.6rem; /* Header height */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 132px; /* 120px * 1.1 - 10% bigger */
+  height: 44px; /* 40px * 1.1 - 10% bigger */
+  background: #dc2626;
+  z-index: 0;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    80.3% 100%, /* Bottom right - matches tie body top width (80px out of 132px) */
+    19.7% 100%  /* Bottom left - matches tie body top width */
+  );
+}
+
+/* Tie body - long trapezium, narrower at top, wider at bottom */
+body::after {
+  content: '';
+  position: fixed;
+  top: calc(3.6rem + 44px); /* Header height + knot height (adjusted for bigger knot) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* Increased width to allow for wider bottom */
+  height: calc(100vh - 3.6rem - 44px); /* Adjusted for bigger knot */
+  background: #dc2626;
+  z-index: 0;
+  clip-path: polygon(
+    10% 0%,    /* Top left - narrower to match 80px at top */
+    90% 0%,    /* Top right - narrower to match 80px at top */
+    100% 100%, /* Bottom right - full width for wider bottom */
+    0% 100%     /* Bottom left - full width for wider bottom */
+  );
 }
 

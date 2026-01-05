@@ -18,7 +18,7 @@ export default function AnswerOption({
   onClick,
 }: AnswerOptionProps) {
   const getButtonStyles = () => {
-    let baseStyles = 'w-full p-4 rounded-lg font-medium text-left transition-all duration-200 border-2 ';
+    let baseStyles = 'w-full px-4 py-2.5 rounded-lg font-medium text-left transition-all duration-200 border-2 ';
     
     if (showFeedback && isCorrect !== null) {
       if (isCorrect) {
