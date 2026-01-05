@@ -1,8 +1,8 @@
 'use client';
 
-import QuizContainer from '@/components/QuizContainer';
+import CongratulationsCarousel from '@/components/CongratulationsCarousel';
 
 export default function CongratulationsPage() {
-  return <QuizContainer quizType="congratulations" />;
+  return <CongratulationsCarousel />;
 }
 
