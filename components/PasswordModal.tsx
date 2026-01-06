@@ -43,6 +43,23 @@ export default function PasswordModal({ isOpen, onClose }: PasswordModalProps) {
         className="bg-white rounded-lg p-8 max-w-md w-full mx-2 sm:mx-4 md:mx-auto shadow-xl relative"
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors p-1"
+          aria-label="Close"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
         <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
           А тесты ты прошел?! Введи пароль!
         </h2>
