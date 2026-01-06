@@ -9,20 +9,17 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm -mt-24">
-        <div className="bg-black/50 dark:bg-black/70 backdrop-blur-sm rounded-lg p-8">
+        <div className="bg-black/50 backdrop-blur-sm rounded-lg p-8">
           <h1 className="text-4xl font-bold text-center mb-8 text-white">
             Неужели нашему Малышу 40 лет?!
           </h1>
           <p className="text-center text-lg mb-8 text-white">
-            По этому случаю - поздравления! Но сначала проверим его на{' '}
-            <Link href="#" className="text-blue-300 hover:underline">
-              сенильность
-            </Link>
-            {' '}и{' '}
+            По этому случаю - поздравления! Но сначала{' '}
             <Link href="/photos" className="text-blue-300 hover:underline">
-              склероз
+              проверим его на сенильность и склероз
             </Link>
-            . Возраст все-таки.
+            .<br />
+            Возраст все-таки.
           </p>
           <div className="text-center space-y-4">
             <div>

@@ -22,18 +22,18 @@ export default function AnswerOption({
     
     if (showFeedback && isCorrect !== null) {
       if (isCorrect) {
-        return baseStyles + 'bg-green-100 border-green-500 text-green-800 dark:bg-green-900 dark:border-green-400 dark:text-green-200';
+        return baseStyles + 'bg-green-100 border-green-500 text-green-800';
       } else if (isSelected && !isCorrect) {
-        return baseStyles + 'bg-red-100 border-red-500 text-red-800 dark:bg-red-900 dark:border-red-400 dark:text-red-200';
+        return baseStyles + 'bg-red-100 border-red-500 text-red-800';
       }
-      return baseStyles + 'bg-gray-100 border-gray-300 text-gray-600 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400';
+      return baseStyles + 'bg-gray-100 border-gray-300 text-gray-600';
     }
     
     if (isSelected) {
-      return baseStyles + 'bg-blue-100 border-blue-500 text-blue-800 dark:bg-blue-900 dark:border-blue-400 dark:text-blue-200';
+      return baseStyles + 'bg-blue-100 border-blue-500 text-blue-800';
     }
     
-    return baseStyles + 'bg-white border-gray-300 text-gray-800 hover:bg-gray-50 hover:border-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700';
+    return baseStyles + 'bg-white border-gray-300 text-gray-800 hover:bg-gray-50 hover:border-blue-300';
   };
 
   return (
@@ -48,13 +48,13 @@ export default function AnswerOption({
           <span>{option}</span>
         </div>
         {isSelected && !showFeedback && (
-          <span className="ml-2 text-blue-600 dark:text-blue-400 text-xl">✓</span>
+          <span className="ml-2 text-blue-600 text-xl">✓</span>
         )}
         {showFeedback && isCorrect && (
-          <span className="ml-2 text-green-600 dark:text-green-400 text-xl">✓</span>
+          <span className="ml-2 text-green-600 text-xl">✓</span>
         )}
         {showFeedback && isSelected && !isCorrect && (
-          <span className="ml-2 text-red-600 dark:text-red-400 text-xl">✗</span>
+          <span className="ml-2 text-red-600 text-xl">✗</span>
         )}
       </div>
     </button>

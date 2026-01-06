@@ -16,8 +16,8 @@ export default function MediaDisplay({ type, media }: MediaDisplayProps) {
     if (imageError) {
       return (
         <div className="w-full max-w-2xl mx-auto mb-6">
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-            <p className="text-gray-500 dark:text-gray-400">Image not found</p>
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-gray-200 flex items-center justify-center">
+            <p className="text-gray-500">Image not found</p>
           </div>
         </div>
       );
@@ -43,8 +43,8 @@ export default function MediaDisplay({ type, media }: MediaDisplayProps) {
 
   return (
     <div className="w-full max-w-2xl mx-auto mb-6">
-      <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-        <p className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap leading-relaxed">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">
           {media}
         </p>
       </div>

@@ -30,7 +30,7 @@ body {
 body::before {
   content: '';
   position: fixed;
-  top: 3.6rem; /* Header height */
+  top: 2.88rem; /* Header height */
   left: 50%;
   transform: translateX(-50%);
   width: 132px; /* 120px * 1.1 - 10% bigger */
@@ -49,11 +49,11 @@ body::before {
 body::after {
   content: '';
   position: fixed;
-  top: calc(3.6rem + 44px); /* Header height + knot height (adjusted for bigger knot) */
+  top: calc(2.88rem + 44px); /* Header height + knot height (adjusted for bigger knot) */
   left: 50%;
   transform: translateX(-50%);
   width: 100px; /* Increased width to allow for wider bottom */
-  height: calc(100vh - 3.6rem - 44px); /* Adjusted for bigger knot */
+  height: calc(100vh - 2.88rem - 44px); /* Adjusted for bigger knot */
   background: #dc2626;
   z-index: 0;
   clip-path: polygon(

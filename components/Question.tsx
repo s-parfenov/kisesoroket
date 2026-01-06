@@ -27,7 +27,7 @@ export default function Question({
     <div className="w-full max-w-4xl mx-auto">
       <MediaDisplay type={question.type} media={question.media} />
       
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">
+      <h2 className="text-2xl font-bold mb-6 text-center text-white px-4 py-3 rounded-lg" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
         {question.question}
       </h2>
       
