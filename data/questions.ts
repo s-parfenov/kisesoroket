@@ -57,7 +57,7 @@ export const photoQuestions: Question[] = [
     media: '/images/anniversary.jpg',
     question: 'Вопрос посложнее - какую годовщину свадьбы вы здесь празднуете:',
     options: ['Надувную','Стеклянную', 'Деревянную', 'Оловянную'],
-    correctAnswer: 3,
+    correctAnswer: 1,
   },
   {
     id: 'photo-8',

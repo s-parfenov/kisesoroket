@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 
 interface PasswordModalProps {
@@ -11,9 +12,15 @@ interface PasswordModalProps {
 export default function PasswordModal({ isOpen, onClose }: PasswordModalProps) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
+
+  if (!isOpen || !mounted) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,16 +34,14 @@ export default function PasswordModal({ isOpen, onClose }: PasswordModalProps) {
     }
   };
 
-  return (
+  const modalContent = (
     <div 
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm"
       onClick={onClose}
-      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       <div 
-        className="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-xl relative"
+        className="bg-white rounded-lg p-8 max-w-md w-full mx-2 sm:mx-4 md:mx-auto shadow-xl relative"
         onClick={(e) => e.stopPropagation()}
-        style={{ margin: 'auto' }}
       >
         <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
           А тесты ты прошел?! Введи пароль!
@@ -72,5 +77,7 @@ export default function PasswordModal({ isOpen, onClose }: PasswordModalProps) {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
 
