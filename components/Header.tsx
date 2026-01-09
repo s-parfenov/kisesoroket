@@ -17,7 +17,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-3xl font-bold text-white">40</span>
+              <span className="text-3xl font-bold">
+                <span className="text-white">KISE</span>
+                <span style={{ color: '#dc2626' }}>40</span>
+                <span className="text-white">ET</span>
+              </span>
             </Link>
           </div>
 

@@ -98,9 +98,9 @@ export default function QuizContainer({ quizType }: QuizContainerProps) {
     let comment = '';
     
     if (scorePercentage < 50) {
-      comment = 'Хорошо бы, конечно, провериться, тревожные результаты, Дружок. \nНо код тебе все равно дадим, так и быть: 0901';
+      comment = 'Хорошо бы, конечно, провериться, деменция не дремлет, Дружок. \nНо код тебе все равно дадим, так и быть: 0901';
     } else if (scorePercentage >= 50 && scorePercentage <= 75) {
-      comment = 'Ну в целом - с учетом возраста неплохо. \nДержи код: 0901';
+      comment = 'Ну в целом,с учетом возраста, неплохо. \nДержи код: 0901';
     } else {
       comment = 'Красавчик, только мех чуть вытерся, а так - почти как новый!\nДержи код: 0901, заслужил';
     }
@@ -109,10 +109,10 @@ export default function QuizContainer({ quizType }: QuizContainerProps) {
       <div className="min-h-screen flex items-center justify-center p-8">
         <div className="max-w-2xl w-full text-center">
           <h1 className="text-4xl font-bold mb-6 text-white px-4 py-3 rounded-lg" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
-            Quiz Complete! 🎉
+            Игого, что мы имеем:
           </h1>
           <p className="text-2xl mb-6 text-white px-4 py-3 rounded-lg" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
-            Your score: {quizState.score} / {totalQuestions}
+            Ты угадал: {quizState.score} / {totalQuestions}
           </p>
           <p className="text-xl mb-8 text-white px-4 py-3 rounded-lg whitespace-pre-wrap" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
             {comment}
@@ -122,14 +122,14 @@ export default function QuizContainer({ quizType }: QuizContainerProps) {
               onClick={handleRetakeQuiz}
               className="inline-block px-8 py-2.5 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
             >
-              Retake Quiz
+              Оттестируйте меня заново!
             </button>
             <br />
             <Link
               href="/"
               className="inline-block px-8 py-2.5 bg-gray-600 text-white rounded-lg font-semibold text-lg hover:bg-gray-700 transition-colors"
             >
-              Back to Home
+              На главную
             </Link>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function QuizContainer({ quizType }: QuizContainerProps) {
               onClick={handleNext}
               className="px-8 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-lg"
             >
-              {isLastQuestion ? 'Finish Quiz' : 'Next'}
+              {isLastQuestion ? 'Чего насчиталось?' : 'Следующий'}
             </button>
           </div>
         )}
